@@ -1,9 +1,11 @@
 import "./App.css";
+import "balan";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">Expenses Chart Component</header>
+      <Balance />
+      <Chart />
     </div>
   );
 }
