@@ -58,14 +58,18 @@ code {
   margin: 3rem 0rem 1rem 0rem;
   display: flex;
   justify-content: space-between;
+  align-items: end;
 }
 
 .barchart {
   border-radius: 0.3rem;
-
   width: 40px;
-  background-color: hsl(10, 79%, 65%);
   margin-bottom: 0.2rem;
+}
+
+.barchart:hover {
+  cursor: pointer;
+  opacity: 0.7;
 }
 
 .monthly {

@@ -1,7 +1,10 @@
 import "./App.css";
 import dailyData from "./data/data.json";
+import { useState } from "react";
 
 function App() {
+  const [hovering, setHovering] = useState(false);
+
   let day = 0;
   switch (new Date().getDay()) {
     case 0:
@@ -30,7 +33,6 @@ function App() {
     //put all amounts into an array
     let amounts = [];
     dailyData.map((data) => amounts.push(data.amount));
-    console.log(amounts);
 
     //find highest number in amounts array
     for (let i = 0; i < amounts.length; i++) {
@@ -49,14 +51,19 @@ function App() {
         highest = true;
       }
       if (highest) {
-        console.log(num);
         return num;
       }
     }
   }
+  //cannot add hover state to inline styling, hence the onMouseEnter and onMouseLeave, which does the same thing.
+  function hover(e) {
+    e.target.style.opacity = 0.7;
+    setHovering(true);
+  }
 
-  function tester() {
-    return 5;
+  function noHover(e) {
+    e.target.style.opacity = 1;
+    setHovering(false);
   }
 
   return (
@@ -72,17 +79,26 @@ function App() {
             return (
               <div>
                 <div
+                  style={!hovering ? { display: "none" } : { display: "block" }}
+                >
+                  help
+                </div>
+                <div
                   className="barchart"
                   key={index}
                   style={
-                    ({
-                      backgroundColor:
-                        data.day === day
-                          ? "hsl(186, 34%, 60%)"
-                          : "hsl(10, 79%, 65%)",
-                    },
-                    { height: (data.amount / findHighest()) * 100 })
+                    data.day === day
+                      ? {
+                          height: (data.amount / findHighest()) * 100,
+                          backgroundColor: "hsl(186, 34%, 60%)",
+                        }
+                      : {
+                          height: (data.amount / findHighest()) * 100,
+                          backgroundColor: "hsl(10, 79%, 65%)",
+                        }
                   }
+                  onMouseEnter={hover}
+                  onMouseLeave={noHover}
                 ></div>
                 <p
                   style={{
