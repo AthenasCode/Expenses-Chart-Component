@@ -1,13 +1,76 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap");
+
+html {
+  height: 100vh;
+  font-family: "Open Sans", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100%;
+}
+
+#root {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: hsl(27, 66%, 92%);
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.app {
+  width: 400px;
+}
+
+.balance {
+  color: hsl(33, 100%, 98%);
+  border-radius: 1rem;
+  padding: 1rem;
+  background-color: hsl(10, 79%, 65%);
+}
+
+.spending {
+  color: hsl(25, 47%, 15%);
+  margin-top: 1rem;
+  border-radius: 1rem;
+  padding: 1rem;
+  background-color: hsl(33, 100%, 98%);
+}
+
+.chart {
+  margin: 3rem 0rem 1rem 0rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.barchart {
+  border-radius: 0.3rem;
+
+  width: 40px;
+  background-color: hsl(10, 79%, 65%);
+  margin-bottom: 0.2rem;
+}
+
+.monthly {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid hsl(27, 66%, 92%);
+  padding-top: 1.5rem;
 }
