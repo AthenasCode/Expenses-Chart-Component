@@ -69,8 +69,29 @@ function App() {
   return (
     <div className="app">
       <div className="balance">
-        <p style={{ fontSize: "small" }}>My balance</p>
-        <h3>$921.48</h3>
+        <div>
+          <p style={{ fontSize: "small" }}>My balance</p>
+          <h3>$921.48</h3>
+        </div>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            marginRight: "0.5rem",
+          }}
+        >
+          <svg
+            width="45"
+            height="30"
+            viewBox="0 0 72 48"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g fill="none" fill-rule="evenodd">
+              <circle fill="#382314" cx="48" cy="24" r="24" />
+              <circle stroke="#FFF" stroke-width="2" cx="24" cy="24" r="23" />
+            </g>
+          </svg>
+        </div>
       </div>
       <div className="spending">
         <h3>Spending - Last 7 days</h3>

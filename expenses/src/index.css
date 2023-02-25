@@ -41,6 +41,8 @@ code {
 }
 
 .balance {
+  display: flex;
+  justify-content: space-between;
   color: hsl(33, 100%, 98%);
   border-radius: 1rem;
   padding: 1rem;
