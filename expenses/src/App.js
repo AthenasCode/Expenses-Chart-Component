@@ -28,8 +28,7 @@ function App() {
 
   function findHighest() {
     //put all amounts into an array
-    let amounts = [];
-    dailyData.map((data) => amounts.push(data.amount));
+    let amounts = dailyData.map(({amount}) => amount);
 
     //find highest number in amounts array
     for (let i = 0; i < amounts.length; i++) {
