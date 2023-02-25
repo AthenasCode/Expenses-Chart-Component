@@ -1,10 +1,7 @@
 import "./App.css";
 import dailyData from "./data/data.json";
-import { useState } from "react";
 
 function App() {
-  const [hovering, setHovering] = useState(false);
-
   let day = 0;
   switch (new Date().getDay()) {
     case 0:
