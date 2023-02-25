@@ -58,12 +58,12 @@ function App() {
   //cannot add hover state to inline styling, hence the onMouseEnter and onMouseLeave, which does the same thing.
   function hover(e) {
     e.target.style.opacity = 0.7;
-    setHovering(true);
+    e.target.previousSibling.style.opacity = 1;
   }
 
   function noHover(e) {
     e.target.style.opacity = 1;
-    setHovering(false);
+    e.target.previousSibling.style.opacity = 0;
   }
 
   return (
@@ -77,23 +77,20 @@ function App() {
         <div className="chart">
           {dailyData.map((data, index) => {
             return (
-              <div>
+              <div className="barchart">
+                <div className="amount">${data.amount}</div>
                 <div
-                  style={!hovering ? { display: "none" } : { display: "block" }}
-                >
-                  help
-                </div>
-                <div
-                  className="barchart"
+                  className="bar"
+                  id={data.day}
                   key={index}
                   style={
                     data.day === day
                       ? {
-                          height: (data.amount / findHighest()) * 100,
+                          height: (data.amount / findHighest()) * 120,
                           backgroundColor: "hsl(186, 34%, 60%)",
                         }
                       : {
-                          height: (data.amount / findHighest()) * 100,
+                          height: (data.amount / findHighest()) * 120,
                           backgroundColor: "hsl(10, 79%, 65%)",
                         }
                   }
