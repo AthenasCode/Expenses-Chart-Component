@@ -2,6 +2,7 @@ import "./App.css";
 import dailyData from "./data/data.json";
 
 function App() {
+  //define day to allow comparison of the data "day" to the actual day in the conditional styling of the bars.
   let day = 0;
   switch (new Date().getDay()) {
     case 0:
@@ -26,9 +27,11 @@ function App() {
       day = "sat";
   }
 
+  // Function to find the highest amount of all the data. This allows inline style calculation of the height of each bar, by calculating height based the highest number ((data.amount / findHighest()) * 120)
+  // A React chart library would probably simplify this, but I wanted to see if I could do it manually.
   function findHighest() {
     //put all amounts into an array
-    let amounts = dailyData.map(({amount}) => amount);
+    let amounts = dailyData.map(({ amount }) => amount);
 
     //find highest number in amounts array
     for (let i = 0; i < amounts.length; i++) {
@@ -51,6 +54,7 @@ function App() {
       }
     }
   }
+
   //cannot add hover state to inline styling, hence the onMouseEnter and onMouseLeave, which does the same thing.
   function hover(e) {
     e.target.style.opacity = 0.7;
